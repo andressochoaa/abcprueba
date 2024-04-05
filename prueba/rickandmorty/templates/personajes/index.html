@@ -5,7 +5,10 @@
 {% block contenido %} 
 
 <div class="card">
-    <div class="card-header">Listar personajes</div>
+    <div class="card-header">
+        <a class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo personaje</a>
+        
+    </div>
     <div class="card-body">
         <h4 class="card-title">Personajes</h4>
         <div
@@ -27,7 +30,9 @@
                         <td>Django con Python</td>
                         <td>Imagen.jpg</td>
                         <td>Descripción</td>
-                        <td>Editar | Eliminar</td>
+                        <td> <a class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a>
+                         | 
+                         <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>
