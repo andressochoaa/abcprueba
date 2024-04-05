@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Agregar nuevo personaje {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Crear un personaje</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del personaje</h4>
+
+        {% include 'personajes/form.html' %}
+
+    </div>
+</div>
+
+
+{% endblock %}
