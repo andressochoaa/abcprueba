@@ -23,6 +23,9 @@ def crear(request):
 def editar(request, id):
     personaje = Personaje.objects.get(id=id)
     formulario = PersonajeForm(request.POST or None, request.FILES or None, instance=personaje)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('personajes')
     return render(request, 'personajes/editar.html', {'formulario': formulario})
 def eliminar(request, id):
     personaje = Personaje.objects.get(id=id)
