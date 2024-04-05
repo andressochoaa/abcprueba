@@ -20,8 +20,10 @@ def crear(request):
     return render(request, 'personajes/crear.html', {'formulario': formulario})
 
 
-def editar(request):
-    return render(request, 'personajes/editar.html')
+def editar(request, id):
+    personaje = Personaje.objects.get(id=id)
+    formulario = PersonajeForm(request.POST or None, request.FILES or None, instance=personaje)
+    return render(request, 'personajes/editar.html', {'formulario': formulario})
 def eliminar(request, id):
     personaje = Personaje.objects.get(id=id)
     personaje.delete()
