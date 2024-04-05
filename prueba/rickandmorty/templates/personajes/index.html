@@ -25,15 +25,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for personaje in personajes %}
                     <tr>
-                        <td>1</td>
-                        <td>Django con Python</td>
-                        <td>Imagen.jpg</td>
-                        <td>Descripción</td>
-                        <td> <a class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a>
-                         | 
-                         <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
+                        <td>{{personaje.id}}</td>
+                        <td>{{personaje.nombre}}</td>
+                        <td><img src="{{personaje.imagen.url}}" width="100" height="100"></td>
+                        <td>{{personaje.descripcion}}</td>
+                        <td>
+                        <a class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a> | 
+                        <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Personaje
 
 def inicio(request):
     return render(request, 'paginas/inicio.html')
@@ -8,7 +9,8 @@ def nosotros(request):
 
 
 def personajes(request):
-    return render(request, 'personajes/index.html')
+    personajes = Personaje.objects.all()
+    return render(request, 'personajes/index.html', {'personajes': personajes})
 def crear(request):
     return render(request, 'personajes/crear.html')
 
