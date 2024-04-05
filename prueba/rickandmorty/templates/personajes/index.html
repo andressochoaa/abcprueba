@@ -33,7 +33,7 @@
                         <td>{{personaje.descripcion}}</td>
                         <td>
                         <a class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a> | 
-                        <a class="btn btn-danger" href="#" role="button">Eliminar</a></td>
+                        <a class="btn btn-danger" href="{% url 'eliminar' personaje.id %}" role="button">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -22,5 +22,9 @@ def crear(request):
 
 def editar(request):
     return render(request, 'personajes/editar.html')
+def eliminar(request, id):
+    personaje = Personaje.objects.get(id=id)
+    personaje.delete()
+    return redirect('personajes')
 
 # Create your views here.

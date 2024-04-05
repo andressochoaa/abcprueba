@@ -9,4 +9,5 @@ urlpatterns = [
     path('personajes', views.personajes, name='personajes'),
     path('personajes/crear', views.crear, name='crear'),
     path('personajes/editar', views.editar, name='editar'),
+    path('eliminar/<int:id>', views.eliminar, name='eliminar'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
