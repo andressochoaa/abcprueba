@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang = "es">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Rick and Morty CH</title>
-    </head>
-    <body>
-        <h1>Personajes de Ricky and Morty</h1>
-        <ul id="ch-list"></ul>
-        
-        <script>
-            fetch('/character')
-                .then(response => responde.json())
-                .then(characters => {
-                    const chList = document.getElementById('ch-list');
-                    characters.forEach(character => {
-                        const li = document.createElement('li');
-                        li.textContent = '${character.name} - ${character.species} - ${character.origin.name}';
-                        chList.appendChild(li);
-                    });
-                })
-                .catch(error => console.error('Error:', error))
-        </script>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes de Rick and Morty</title>
+</head>
+<body>
+    <h1>Personajes de Rick and Morty</h1>
+    <ul id="character-list"></ul>
+
+    <script>
+        // Realizar una solicitud AJAX para obtener los datos de los personajes
+        fetch('/characters')
+            .then(response => response.json())
+            .then(characters => {
+                const characterList = document.getElementById('character-list');
+                characters.forEach(character => {
+                    const li = document.createElement('li');
+                    li.textContent = character.name;
+                    characterList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
 </html>
